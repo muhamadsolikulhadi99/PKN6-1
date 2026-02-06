@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar PKn Kelas 6 SD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div id="halaman1">
+    <!-- Logo -->
+    <img src="img/logo.png" alt="Logo SDN 1 Lebak" id="logoSekolah">
+
+    <!-- Nama Sekolah -->
+    <h2>SDN 1 Lebak Kec. Pakis Aji Kab. Jepara</h2>
+
+    <!-- Judul Kuis -->
+    <h1>BELAJAR PKn KELAS 6</h1>
+
+    <!-- Foto Guru & Nama -->
+    <div id="fotoGuruWrapper">
+        <img src="img/guru.png" alt="Muhamad Solikul Hadi, S.Pd" id="fotoGuru">
+        <p>MUHAMAD SOLIKUL HADI, S.Pd</p>
+    </div>
+
+    <!-- Form Nama + Tombol berdampingan -->
+    <div id="formNamaKuis">
+        <input type="text" id="namaSiswaInput" placeholder="Masukkan Nama Siswa">
+        <button id="mulaiBtn">Mulai Belajar</button>
+    </div>
+
+    <!-- Kata Sambutan -->
+    <p id="kataSambutan">
+        Selamat datang di kuis PKn Kelas 6.1 <br>
+        Masukkan nama kamu, lalu klik "Mulai Belajar".<br>
+        Semoga menyenangkan dan bermanfaat!
+    </p>
+   </div>
+
+   <div id="halaman2">
+        <h1>Kuis PKn – Makna, Keterkaitan sila dan Elemen Pancasila</h1>
+
+        <!-- Progress tracker 100 kotak -->
+        <div id="progress"></div>
+
+        <!-- Soal & Pilihan jawaban -->
+        <div id="soal"></div>
+        <div id="pilihan">
+            <button onclick="cekJawaban(this)"></button>
+            <button onclick="cekJawaban(this)"></button>
+            <button onclick="cekJawaban(this)"></button>
+        </div>
+
+        <!-- Feedback -->
+        <div id="feedback"></div>
+
+        <!-- Navigasi soal -->
+        <div id="navSoal">
+            <button id="prevBtn">⬅ Prev</button>
+            <button id="nextBtn">Next ➡</button>
+        </div>
+
+        <!-- Info Skor -->
+        <p id="infoSkor"></p>
+   </div>
+
+   <div id="halaman3">
+        <div id="sertifikatContent">
+            <h1>🎓 SERTIFIKAT BELAJAR</h1>
+            <p>Diberikan kepada:</p>
+            <h2 id="namaSertifikat">Nama Siswa</h2>
+            <p>Telah menyelesaikan <b>100 Soal PKn – Makna, Keterkaitan sila dan Elemen Pancasila</b><br />Kelas 6 SD</p>
+            <table>
+                <tr><th>Benar</th><th>Salah</th><th>Skor</th><th>Predikat</th><th>Durasi</th></tr>
+                <tr>
+                    <td id="sertifBenar">0</td>
+                    <td id="sertifSalah">0</td>
+                    <td id="sertifSkor">0</td>
+                    <td id="sertifPredikat">-</td>
+                    <td id="durasiSertifikat">-</td>
+                </tr>
+            </table>
+            <p id="tanggalSertifikat"></p>
+            <p class="guru">Guru Pembimbing<br /><b>MUHAMAD SOLIKUL HADI, S.Pd</b></p>
+            <button class="btn-cetak" id="cetakBtn">🖨️ Cetak / Simpan</button>
+        </div>
+   </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

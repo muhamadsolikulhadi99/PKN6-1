@@ -1,0 +1,332 @@
+/* ===== BODY ===== */
+body {
+    font-family:'Comic Sans MS',Arial,sans-serif;
+    margin:0;
+    padding:20px 15px;
+    box-sizing:border-box;
+    overflow-x: hidden;
+}
+
+/* ===== HALAMAN UMUM ===== */
+#halaman1, #halaman2, #halaman3 {
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+/* ===== HALAMAN 1 ===== */
+#halaman1 {
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4,#a18cd1,#fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+}
+
+/* Logo */
+#logoSekolah {
+    display:block;
+    margin:0 auto 20px;
+    width:120px;
+    height:auto;
+}
+
+/* Foto Guru */
+#fotoGuruWrapper {
+    text-align:center;
+    margin-bottom:20px;
+}
+#fotoGuruWrapper img {
+    width:100px;
+    height:auto;
+    border-radius:50%;
+    border:2px solid #4caf50;
+}
+#fotoGuruWrapper p {
+    margin-top:5px;
+    font-weight:bold;
+    color:#fff;
+}
+
+/* Form Nama + Tombol berdampingan */
+#formNamaKuis {
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+#formNamaKuis input {
+    padding:12px 15px;
+    font-size:18px;
+    border-radius:12px;
+    border:none;
+    flex:1;
+}
+#formNamaKuis button {
+    padding:12px 20px;
+    font-size:18px;
+    border-radius:12px;
+    border:none;
+    background:#54f77a;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Kata Sambutan */
+#kataSambutan {
+    font-size:18px;
+    margin-top:10px;
+    color:#333;
+}
+
+/* ===== HALAMAN 2 ===== */
+#halaman2 {
+    background: linear-gradient(135deg,#a1c4fd,#c2e9fb,#fbc2eb,#f6d365);
+    background-size:400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+/* Soal & Pilihan */
+#soal {
+    font-size:36px;
+    margin:30px 0;
+    color:#333;
+    text-align:center;
+}
+#pilihan {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+}
+#pilihan button {
+    font-size:28px;
+    padding:15px 30px;
+    border-radius:15px;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    box-shadow:2px 2px 8px rgba(0,0,0,0.3);
+}
+#pilihan button:nth-child(1){ background:#6b61fffc; }
+#pilihan button:nth-child(2){ background:#c26bcfb9; }
+#pilihan button:nth-child(3){ background:#c9f754e9; }
+#pilihan button:hover{ transform:scale(1.05) rotate(1deg); }
+#pilihan button:disabled { opacity:1; }
+
+/* Feedback & Skor */
+#feedback { font-size:26px; margin-top:15px; font-weight:bold; }
+#infoSkor { font-size:20px; margin-top:15px; font-weight:bold; }
+
+/* Kotak soal (progress tracker) */
+#progress {
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px;
+    max-width:100%;
+    margin-bottom:20px;
+    justify-content:center;
+}
+.kotak-soal {
+    width:28px;
+    height:28px;
+    background-color:#ccc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:12px;
+    cursor:pointer;
+    border-radius:4px;
+    transition: transform 0.2s ease;
+}
+.kotak-soal:hover { transform:scale(1.1); }
+.kotak-soal.benar { background-color:#00c853; color:#fff; }
+.kotak-soal.salah { background-color:#ffab00; color:#fff; }
+.kotak-soal.saatIni { border:2px solid #2196f3; }
+
+/* Tombol navigasi Next / Prev */
+#navSoal {
+    margin-top:15px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+#navSoal button {
+    padding:12px 25px;
+    font-size:18px;
+    border-radius:12px;
+    border:none;
+    background:#2196f3;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold;
+    transition:all 0.3s ease;
+}
+#navSoal button:hover { background:#1976d2; transform:scale(1.05); }
+#navSoal button:disabled { background:#aaa; cursor:not-allowed; transform:none; }
+
+/* Animasi jawaban benar/salah */
+.blink-green {
+    animation: blinkGreen 0.3s ease 3;
+    animation-fill-mode:forwards;
+}
+.blink-red {
+    animation: blinkRed 0.3s ease 3, shake 0.3s linear;
+    animation-fill-mode:forwards;
+}
+@keyframes blinkGreen {
+    0%,25%,50%,75%,100% {
+        background-color:#00c853; color:#fff; transform:scale(1); box-shadow:0 0 5px #00c853;
+    }
+    12%,37%,62%,87% {
+        background-color:#b9f6ca; color:#000; transform:scale(1.05); box-shadow:0 0 20px #00c853;
+    }
+}
+@keyframes blinkRed {
+    0%,50%,100% { background-color:#d50000; color:#fff; box-shadow:0 0 5px #d50000; }
+    25%,75% { background-color:#ff8a80; color:#000; box-shadow:0 0 20px #d50000; }
+}
+@keyframes shake {
+    0%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}
+    60%{transform:translateX(-6px);}80%{transform:translateX(6px);}100%{transform:translateX(0);}
+}
+
+/* ===== HALAMAN 3 - SERTIFIKAT RAMAH ANAK ===== */
+#halaman3 {
+    background: linear-gradient(135deg,#ffecd2,#fcb69f,#cfd9df,#a1c4fd);
+    background-size:400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display:none;
+    padding:40px 20px;
+    justify-content:center;
+    align-items:center;
+}
+
+#sertifikatContent {
+    background: linear-gradient(135deg,#fffde7,#fff8e1,#fffde7);
+    padding: 30px;
+    border-radius: 40px;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    border: 12px solid #ff9800;
+    outline: 6px double #4caf50;
+    box-shadow: 0 0 0 6px #fff inset,
+                0 0 20px rgba(0,0,0,0.2);
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+}
+
+/* Ornamen ⭐ di 4 sudut */
+#sertifikatContent::before,
+#sertifikatContent::after,
+#sertifikatContent span.corner {
+    content: "⭐";
+    position: absolute;
+    font-size: 32px;
+    color: #ff9800;
+}
+#sertifikatContent::before { top: 15px; left: 15px; }
+#sertifikatContent::after  { bottom: 15px; right: 15px; }
+#sertifikatContent span.corner.top-right  { top: 15px; right: 15px; }
+#sertifikatContent span.corner.bottom-left{ bottom: 15px; left: 15px; }
+
+/* Judul Sertifikat */
+#sertifikatContent h1 {
+    font-size: 36px;
+    color: #2e7d32;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Tabel nilai / info */
+#sertifikatContent table {
+    width:100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+#sertifikatContent th, #sertifikatContent td {
+    border:2px solid #333;
+    padding:10px;
+    font-size:16px;
+    text-align:center;
+    border-radius: 8px;
+}
+
+/* Tombol cetak */
+.btn-cetak {
+    width:100%;
+    background-color:#6bcfba;
+    color:white;
+    padding:10px;
+    font-size:16px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    margin-top:15px;
+    font-weight:bold;
+}
+.btn-cetak:hover { background-color:#4aa78f; }
+
+/* ===== ANIMASI GRADIENT ===== */
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===== MEDIA QUERY MOBILE ===== */
+@media screen and (max-width:480px){
+    /* HALAMAN 1 */
+    #halaman1 { padding:10px; }
+    #halaman1 h1 { font-size:6vw; margin-bottom:6px; }
+    #halaman1 h2 { font-size:4vw; margin-bottom:4px; }
+    #halaman1 h3 { font-size:3.5vw; margin-bottom:10px; }
+    #kataSambutan { font-size:14px !important; }
+    #formNamaKuis input { width:100%; font-size:14px; padding:8px; }
+    #formNamaKuis button, #mulaiBtn { width:100%; font-size:16px; padding:10px; }
+
+    /* HALAMAN 2 */
+    #soal { font-size:28px; }
+    #pilihan button { font-size:20px; padding:12px 15px; width:100%; margin:5px 0; }
+    .kotak-soal { width:20px; height:20px; font-size:10px; }
+    #navSoal button { padding:10px 18px; font-size:16px; }
+
+    /* HALAMAN 3 */
+    #sertifikatContent { padding:20px; }
+    #sertifikatContent h1 { font-size:28px; }
+    #sertifikatContent th, #sertifikatContent td { font-size:14px; padding:6px; }
+    .btn-cetak { font-size:16px; padding:10px; }
+}
+
+/* ===== MEDIA PRINT A4 ===== */
+@media print {
+    body { margin:0; padding:0; }
+    #halaman3 {
+        display:flex !important;
+        justify-content:center;
+        align-items:center;
+        width:210mm;
+        height:297mm;
+        page-break-before:always;
+        page-break-after:always;
+    }
+    #sertifikatContent {
+        width:190mm;
+        height:267mm;
+        padding:20px;
+        page-break-inside:avoid;
+    }
+    .btn-cetak { display:none; }
+}
